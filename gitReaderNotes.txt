@@ -73,6 +73,8 @@ GIT
 
         Publish changes and show branches on the Github website
 
+        Show how to clone any repository
+
 
 
 
