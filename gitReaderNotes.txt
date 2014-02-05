@@ -57,28 +57,21 @@ GIT
 
 
     Using Git
-        Create a local repository
-            `git init`
+        Create a repo on (public Github)
 
-        Create a repository on Github
-        Clone that repository
-            git clone [url]
+        Add README
 
-        Make changes
-        Stage those changes
-            git add [changed files]
+        Commit and publish changes
 
-        Commit those changes
-            git commit -m "some message"
-            
-            - The changes have been commited locally
-            - many suggest to commit often
-            - 
+        View repo on Github
 
-        Push those changes
-            git push origin master
-            
-        View changes on Github
+        Make a branch and switch to that branch
+
+        Add 2 files to branch on 2 separate commits
+
+        Show how changes are commited and branched locally but not published yet
+
+        Publish changes and show branches on the Github website
 
 
 
