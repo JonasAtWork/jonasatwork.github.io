@@ -1,0 +1,85 @@
+
+
+
+GIT
+
+    Centralized version control systems
+        - Many teams at disney currently use Team Foundation Server (TFS), a centralized version control system
+        - All of the work of versioning is done in a "central" place, on the server
+        - TFS keeps track of file differences individually. A "version" of a file is the combination of some base state of the file and the subsequent "diffs" on that file [http://git-scm.com/figures/18333fig0104-tn.png]
+        - When a developer is working on a file, that file is "checked out", meaning that the server locks out anyone else from working on that same file
+            - this is not completely true, anyone with access to that file can work on a local "workspace" version, but they wont be able to check-in their changes until the file on the server is unlocked
+        - The state of any given file is frequently updated and verified against the central server
+
+        - There is nothing wrong with this model of version control
+            - M$ has made TFS able to scale very well on larger projects with many developers
+            - Often times you need more than version control, TFS also offers things like:
+                - Build Server
+                - Work Item Tracking
+                - Code Analytics
+                - Deep integration with Visual Studio
+
+        - But sometimes its not the right tool for the job
+            - May be not so easy to integrate with a TF Server when not using Visual Studio and the M$ Suite (i.e. java projects)
+            - May be overkill on smaller, or more agile projects
+            - Even though my reading has shown that TFS 2012 has significantly improved the ability to quickly branch and merge, it can still be messy, and in general can be so for Centralized Version Control systems
+
+
+    Git is decentralized
+        - Decentralized means there is no central place that the versioning of files is done. Git makes no distinction between a server or a client, everyone has a copy of the whole repository
+        - Git keeps track of the state of file system over time, not necesarily individual files [http://git-scm.com/figures/18333fig0105-tn.png]
+        - Because everyone has a full copy of the repository, all changes are done locally
+            - Most projects still need a repository designated to be the "primary" spot for code, this is what a github repository is often used for
+            - Remember that even though a "blessed" copy of the code resides on the primary repository, there is no restriction on multiple developers working on the same file from their own copies of that repository (like in a centralized VCS)
+        - The state of any given file is frequently updated and verified locally against the local repository
+        - Git is flexible!  
+            - [http://git-scm.com/images/about/workflow-a@2x.png]
+            - [http://git-scm.com/images/about/workflow-b@2x.png]
+            - [http://git-scm.com/images/about/workflow-c@2x.png]
+            - git is a workflow construction kit
+
+        - Git is not Github, though github provides some great ways to use git that make it easier, which is probably why it is being adopted at disney (https://github.disney.com)
+            - comparing git to TFS is like comparing MS Excel to Business Objects, its not quite an apt comparison
+                - however comparing git combined with github to TFS is more appropriate
+                    - Work item and bug tracking
+                    - Code analytics
+                    - build server integration
+                    - deep integration with many varied IDE's and tools (including VS 2012)
+            - Git is easy to setup and get started with
+                - simply installing the git tools will allow you full version control on your local machine
+                - Github makes it easy to have your code accessible, and start working with others
+
+        - Git is sometimes not the tool for the job either
+            - If you are handling many varied, often updated binary files (ex. .wid or .xlf files) you lose the ability to easily branch and merge
+                - git may actually be less efficient at storing these types of files (though there are several open source git add-ons which try to address this)
+            - git is command line heavy. Even GUI tools are basically wrappers for the various git commands, so the learning curve can be steeper
+
+
+
+    Using Git
+        Create a local repository
+            `git init`
+
+        Create a repository on Github
+        Clone that repository
+            git clone [url]
+
+        Make changes
+        Stage those changes
+            git add [changed files]
+
+        Commit those changes
+            git commit -m "some message"
+            
+            - The changes have been commited locally
+            - many suggest to commit often
+            - 
+
+        Push those changes
+            git push origin master
+            
+        View changes on Github
+
+
+
+
