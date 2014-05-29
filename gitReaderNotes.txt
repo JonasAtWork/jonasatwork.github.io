@@ -2,6 +2,10 @@
 
 
 GIT
+    Overview of Systems
+    Terminology for Git
+    How to use Git
+
 
     Centralized version control systems
         - Many teams at disney currently use Team Foundation Server (TFS), a centralized version control system
