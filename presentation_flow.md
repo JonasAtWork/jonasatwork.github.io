@@ -203,7 +203,7 @@
 
    * submit your changes to the repository owner as a *patch* so that they may implement your changes (GitHub abstracts this into something called a *pull request*, more on this later...)
 
- Git is all about saving *snapshots* of repository objects. Git keeps track of these items in a conceptual tree that connects one * snapshot* to another by their differences (or simply, *diff*). *Snapshots* are identified by a hash (SHA-1 hash to be exact). The  important things to note is that the hash allows a specific *snapshot* to be addressed and used later. Also, even though the hash is  40 characters long, it is usually enough to identify it with only the first 7 characters.
+ Git is all about saving *snapshots* of repository objects. Git keeps track of these items in a conceptual tree that connects one *snapshot* to another by their differences (or simply, *diff*). *Snapshots* are identified by a hash (SHA-1 hash to be exact). The  important things to note is that the hash allows a specific *snapshot* to be addressed and used later. Also, even though the hash is  40 characters long, it is usually enough to identify it with only the first 7 characters.
 
  A *branch* is one particular line in that conceptual tree of *snapshots*. We *checkout* a particular *branch* to make it active. When  a *branch* is active all changes made to files are compared to the most recent *snapshot* in that *branch*
  ```
@@ -245,7 +245,7 @@
      nothing to commit, working directory clean
  ```
 
- After working on a *branch* for a while, you may get to the point where you are ready to merge the *commits* you've made into another * branch*. This is accomplished with a *merge*. We need to tell Git to move to the *branch* we are merging **to**, and perform the *merge * action on the *branch* the changes are coming **from**.
+ After working on a *branch* for a while, you may get to the point where you are ready to merge the *commits* you've made into another *branch*. This is accomplished with a *merge*. We need to tell Git to move to the *branch* we are merging **to**, and perform the *merge* action on the *branch* the changes are coming **from**.
  ```
    git checkout master
    git merge awesomeNewFeature
