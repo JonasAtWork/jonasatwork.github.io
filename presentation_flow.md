@@ -7,34 +7,34 @@
  3. TFVC
  4. Git
  5. Using Git
- 6. Using Git with GitHub 
+ 6. Using Git with GitHub
  7. Workflows
 
 ## Objectives ##
 
  * Who should use Git
- * What Git is 
+ * What Git is
  * Where Git excels
  * When does Git fall short
  * Why Git should be used
  * How Git works and How it compares to TFVC
- 
+
  <!-- Need GitHub objectives -->
- 
+
  * Provide an overview of Version Control Systems and the two basic flavors that they come in
  * Give you the high and low points of using TFVC as it relates to my experience with it on my own team
  * Illustrate how Git is different
  * Show you the basics of how Git works
  * Show you how GitHub uses Git and the basics of using GitHub
  * Show you the GitHub GUI in action
- 
- 
+
+
  *Disclaimer: I have experience with using both TFS and Git and am familiar with the basics of both. However, I am by no means an expert . My intention is to merely provide an introductory look and point you in the right direction to learn more*
 
 ## Version Control Systems ##
 
  Modern Version Control Systems should allow you to do some important, specific things:
- 
+
  1. Concept of a project
    * define projects
    * define objects that are a part of that project
@@ -45,14 +45,14 @@
    * Remove objects
    * Create an alternate version of objects (*branching*)
    * Combine alternate object versions into one object (*merging*)
- 
+
  There are two main ways modern Version Control Systems Work
 
 ### Centralized Version Control Systems ###
 
  *Examples: Team Foundation Server (TFVC), Concurrent Versions System (CVS), Subversion (SVN), Visual Source Safe*
 
- All of the work to keep track of files in a CVCS is **ONLY** done in one central place (i.e. the server). There is only ever one  repository in a CVCS. Whether there are 1, 10, or 1000 developers working on a project, there is only ever one repository. 
+ All of the work to keep track of files in a CVCS is **ONLY** done in one central place (i.e. the server). There is only ever one  repository in a CVCS. Whether there are 1, 10, or 1000 developers working on a project, there is only ever one repository.
 
  **This implies a few important points about a CVCS**
 
@@ -69,43 +69,43 @@
  **This implies a few important points about a DVCS**
 
    * To work on the project files, you only need access to your local filesystem where the repository lives. You **don't need** network access to reach your repository
-   * Any file can be worked on within your own copy of the repository, regardless of who else may be working on that file. No one else can "lock" a file in your repository. 
+   * Any file can be worked on within your own copy of the repository, regardless of who else may be working on that file. No one else can "lock" a file in your repository.
    * Actions affecting the structure of the project can be done cheaply (`cheap == local`) and could conceivably not affect other copies of the repository if you dont want it to
 
 ### Locking vs Merging ###
 
- The workings of a CVCS should be pretty familiar to most. It follows what is sometimes called a "locking strategy", following the  pattern: `UNLOCK --> MODIFY --> LOCK`. A file is *read only* when `LOCKED`, and *writable* when `UNLOCKED`. 
+ The workings of a CVCS should be pretty familiar to most. It follows what is sometimes called a "locking strategy", following the  pattern: `UNLOCK --> MODIFY --> LOCK`. A file is *read only* when `LOCKED`, and *writable* when `UNLOCKED`.
 
  A DVCS, however uses a "merging strategy" that follows the pattern: `MODIFY --> MERGE`. Changes to files are `MERGED` with the file  that currently exists in the repository.
 
  *Lets look at some specific implementations of Version Control...*
 
 ## Team Foundation Version Control (TFVC) ##
- 
+
   * TFVC is a CVCS, and is a component of the Team Foundation Server (TFS)
   * `TFS != TFVC`
     * TFS is an entire suite of Microsoft tools including a Build Server, Work Item Tracking, Code Analytics, and a Version Control System (TFVC), among others
     * The TFVC component is most comparable to Git as they are both Version Control tools
-    * I want to focus on the workings of TFVC specifically, not TFS. 
+    * I want to focus on the workings of TFVC specifically, not TFS.
   * Git support has recently been added to TFS, so Git can actually be used in place of TFVC in the Team Foundation Server suite if you like the other components that TFS provides
-  
-  <!-- 
+
+  <!--
     ```
-    TFVC is to TFS 
-        Like 
+    TFVC is to TFS
+        Like
     Git is To GitHub
     ```
   -->
 
 ### Current State of TFVC ###
-    
+
   * Our organization has an enterprise scale install of TFS
     * No one on my team is responsible for how the TFS server is running, it is already taken care of
     * There are dedicated hardware resources devoted to housing TFS
 
   * Deep integration with Visual Studios (via TFS) and Windows
     * My team works in .NET so this is important
-    
+
   * Multiple versions of large (1MB - 5MB) binary files are not a problem for TFVC
     * All of the versions are kept on the central server
     * I only grab the version that is most interesting to me (so long as no one else is using it!)
@@ -113,21 +113,21 @@
 
 ### So why not TFVC ###
 
-  * More difficult to integrate with TFS/Visual Studio if you aren't actually doing development in a Microsoft stack 
+  * More difficult to integrate with TFS/Visual Studio if you aren't actually doing development in a Microsoft stack
     * Looking at you Java Developers :)
     * a platform agnostic tool may more suitable
-  
+
   * It may be overkill to use the enterprise scale TFS for smaller projects
     * Provisioning RM's, Access Requests, etc...
     * Sometimes you want to get up and running quickly
-  
+
   * Working Remotely
     * Much more of a problem with a CVCS. Remember, *EVERY* action needs to be done through the network on the server
     * Also, network/server issues do sometimes occur (even within the firewall)
-  
-  * TFS can be cumbersome if you need rapid development, lots of changes, or the ability to test and promote features quickly
+
+  * TFVC can be cumbersome if you need rapid development, lots of changes, or the ability to test and promote features quickly
     * This type of development is becoming more prominent as we move to more agile practices
-    * *branching* and *merging* make this type of development much easier. My personal experience is that *branching* and *merging* often is more trouble than its worth in TFVC :( 
+    * *branching* and *merging* make this type of development much easier. My personal experience is that *branching* and *merging* often is more trouble than its worth in TFVC :(
 
 ## Git ##
 
@@ -146,7 +146,7 @@
   * Can be as simple or complex as needed
     * Want to have a centrally managed repository that depends on verfified code check-ins to make changes... Git can do that
     * Want to work with a few developers pushing code back and forth to the repositories on each other's machines... Git can do that
-    * Have a large project with alot of complexity and developers, needing separation of responsibilities, verified code reviews... Git can do that 
+    * Have a large project with alot of complexity and developers, needing separation of responsibilities, verified code reviews... Git can do that
     * Want to treat Git just like CVCS to ease the transition... Git can do that
 
   * Once you have the repository on your machine... whether you've *cloned* it or created it from scratch, you no longer need access to the network to work on your code
@@ -164,12 +164,12 @@
 
   * Git shines when working with code, and other text based files. With binary files, however, there are a few things to watch out for:
     * While branching and merging of binary files are still handled with Git, you lose the ability to check the diff's between binary file versions
-    * The more large binary files you have in a repository, the more data needs to be downloaded everytime a repository is shared from one machine to another. This can lead to bloat and is subject to network issues as the repository becomes large. **This is single biggest drawback to using Git over a TFVC**. In the words of Git's own creator (Linus Torvalds, 2009):  
-    
+    * The more large binary files you have in a repository, the more data needs to be downloaded everytime a repository is shared from one machine to another. This can lead to bloat and is subject to network issues as the repository becomes large. **This is single biggest drawback to using Git over TFVC**. In the words of Git's own creator (Linus Torvalds, 2009):
+
       > Git fundamnetally never really looks at less than the whole repo. Even if you limit things a bit (ie check out just a portion, or have the history go back just a bit), git ends up still always caring about the whole thing, and carrying the knowledge around.
 
       > So git scales really badly if you force it to look at everything as one _huge_ repository. I don't think that part is really fixable, although we can probably improve on it.
-      
+
       > And yes, then there's the "big file" issues. I really don't know what to do about huge files. We suck at them, I know. There are work-arounds (like not deltaing big objects at all), but they aren't necessarily that great either.
 
 
@@ -184,7 +184,7 @@
 
 ### The basics ###
 
- A Copy of a repository is called a *clone*. Cloning a repository copies the entire repository from a *remote* location and recreates  it on your machine. 
+ A Copy of a repository is called a *clone*. Cloning a repository copies the entire repository from a *remote* location and recreates  it on your machine.
  ```
    git clone git://github.com/jonasatwork/jonasatwork.github.io.git
  ```
@@ -228,7 +228,7 @@
 
  Once all the changes you want are in the *staging area* it's time to *commit* these changes. A *commit* creates a new *snapshot*  consisting of the items in the *staging area*, and appends that *snapshot* to the end of the current branch.
 
- Though not strictly required, it is important to add a *commit message* to document the changes that are being added. *Commit messages*  allow meaning to be applied to the log of changes that Git keeps track of (remember that Git can be self-documenting, this is a best  practice!) 
+ Though not strictly required, it is important to add a *commit message* to document the changes that are being added. *Commit messages*  allow meaning to be applied to the log of changes that Git keeps track of (remember that Git can be self-documenting, this is a best  practice!)
  ```
    git status
      # On branch awesomeNewFeature
@@ -245,7 +245,7 @@
      nothing to commit, working directory clean
  ```
 
- After working on a *branch* for a while, you may get to the point where you are ready to merge the *commits* you've made into another * branch*. This is accomplished with a *merge*. We need to tell Git to move to the *branch* we are merging **to**, and perform the *merge * action on the *branch* the changes are coming **from**.  
+ After working on a *branch* for a while, you may get to the point where you are ready to merge the *commits* you've made into another * branch*. This is accomplished with a *merge*. We need to tell Git to move to the *branch* we are merging **to**, and perform the *merge * action on the *branch* the changes are coming **from**.
  ```
    git checkout master
    git merge awesomeNewFeature
@@ -253,7 +253,7 @@
 
 ## Using Git with GitHub ##
 
- GitHub is a great way to use Git. It adds some great features on top of Git like: 
+ GitHub is a great way to use Git. It adds some great features on top of Git like:
 
    * Work Item and Bug Tracking
    * Code Analytics
@@ -261,19 +261,19 @@
    * Integration with just about everything
    * Convenient GUI's for the WEB and your machine
 
- Disney has a DTSS Enterprise version of GitHub available at [github.disney.com](https://github.disney.com). All of the GUI tools  available from [github.com](https://github.com) work with the Enterprise version. 
+ Disney has a DTSS Enterprise version of GitHub available at [github.disney.com](https://github.disney.com). All of the GUI tools  available from [github.com](https://github.com) work with the Enterprise version.
 
- Think of GitHub as a cloud hosted Git repository that makes it easy to collaborate on a project as well as organize your documentation  and code. To get staretd with GitHub, you need to create a repository through the GitHub UI (Web or Desktop), then *clone* it to your  local machine. 
+ Think of GitHub as a cloud hosted Git repository that makes it easy to collaborate on a project as well as organize your documentation  and code. To get staretd with GitHub, you need to create a repository through the GitHub UI (Web or Desktop), then *clone* it to your  local machine.
 
  GitHub takes some of the basic concepts we discussed earlier and expands on them by formalizing user security, introducing code  review, and enforcing basic workflows.
 
 ### User Security ####
 
- Grouped under your user ID, GitHub keeps track of all of the repositories that you have asked GitHub to store for you. Remember that  in a DVCS like Git, any machine can have a full copy of the repository, so a GitHub server is simply another spot to keep repositories  that are meaningful to you. 
+ Grouped under your user ID, GitHub keeps track of all of the repositories that you have asked GitHub to store for you. Remember that  in a DVCS like Git, any machine can have a full copy of the repository, so a GitHub server is simply another spot to keep repositories  that are meaningful to you.
 
  In addition to creating your own repositories, GitHub allows you to *fork* someone else's repository. *Forking* is simply the process  of *cloning* another user's repository to your own list of GitHub repositories. For all intents and purposes it is like any other  repository in your list except that GitHub keeps track of which user it was *cloned* from.
 
- The public GitHub site makes all repositories you own accessible for *cloning* to anyone else by default. To make a *private repository *, github.com requires a paid account. Thankfully, the Disney Enterprise github.disney.com allows *private repositories* without any  additional configuration. A *private repository* allows you as the repository owner to define which users can *clone*, *pull*, *push*,  *merge* or even see the repository. 
+ The public GitHub site makes all repositories you own accessible for *cloning* to anyone else by default. To make a *private repository *, github.com requires a paid account. Thankfully, the Disney Enterprise github.disney.com allows *private repositories* without any  additional configuration. A *private repository* allows you as the repository owner to define which users can *clone*, *pull*, *push*,  *merge* or even see the repository.
 
 ### Pull Requests ####
 
@@ -285,7 +285,7 @@
    4. *Push* your changes back up to your GitHub copy of the repository
    5. Submit a *pull request* of the specific *commits* or *branch* to the original owner of the repository
 
- At this point the owner of the original repository will be notified (through GitHub, or email if that is configured) that a *pull  request* has been submitted. They can review the changes that are highlighted in the *diff* contained in the *pull request*. If  approved, GitHub submit's a *pull* operation on behalf of the original repository to your repository for the changes conatined in the * pull request*. 
+ At this point the owner of the original repository will be notified (through GitHub, or email if that is configured) that a *pull  request* has been submitted. They can review the changes that are highlighted in the *diff* contained in the *pull request*. If  approved, GitHub submit's a *pull* operation on behalf of the original repository to your repository for the changes conatined in the * pull request*.
 
 ### Collaboration ####
 
@@ -301,10 +301,10 @@
 
 ## Git Workflows ##
 
- Git's creator once quipped that Git is a "workflow construction kit". Git does not  impose any specific way of organizing or thinking about your development process. This is both a blessing and curse, since you are free to do what works best for your time. At the same time, it is an extra dimension to think about.
+ Git's creator, Linus Torvalds, allegedly once quipped that Git is a "workflow construction kit". Git does not  impose any specific way of organizing or thinking about your development process. This is both a blessing and curse, since you are free to do what works best for your time. At the same time, it is something else to plan, and account for in your team.
 
- The workflows I present here are exampels to get you started and are borrowed from the fabulous [Git tutorials guide presented at the Atlassian site](https://www.atlassian.com/git/workflows)
- 
+ The workflows I present here are exampels to get you started and are borrowed from the fabulous [Git tutorials guide](https://www.atlassian.com/git/workflows) presented at the Atlassian site
+
 ### Centralized Workflow ###
 
  A centralized workflow is most similar to what a CVCS provides. This workflow features a single branch, usually called "master" in a centralized repository that everyone *pushes* and *pulls* from.
@@ -315,7 +315,7 @@
 
 ### Git Flow Workflow ###
 
- The Git Flow workflow uses a centralized repository like the other two discussed workflows. However, this workflow isolates work into several branches called "Master", "Release", "Hotfix", and "Develop". Any work done is split out into its own feature branch and merged into the development branch. Once enough merged features have collected the "Develop" branch is merged into the "Release" branch. Once the code in the "Release" branch is deemed sufficient, it is merged into the "Master" branch and is considered production ready. The "Hotfix" branch is used as an integration branch for bug fixes between the "Master" branch and the "Develop" branch. 
+ The Git Flow workflow uses a centralized repository like the other two discussed workflows. However, this workflow isolates work into several branches called "Master", "Release", "Hotfix", and "Develop". Any work done is split out into its own feature branch and merged into the development branch. Once enough merged features have collected the "Develop" branch is merged into the "Release" branch. Once the code in the "Release" branch is deemed sufficient, it is merged into the "Master" branch and is considered production ready. The "Hotfix" branch is used as an integration branch for bug fixes between the "Master" branch and the "Develop" branch.
 
  This workflow follows strict rules when moving code from one branch to another, allowing for clearly defined areas for production ready code, integration testing code, and bug fixes.
 
