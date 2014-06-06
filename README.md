@@ -292,11 +292,8 @@
  GitHub also provides alot of great tools to document and organize code. Some examples:
 
   * A discussion thread is attached to each *pull request* to allow collaborators to discuss and potentially prompt for edits before a *pull request* is accepted
-
   * GitHub provides a wiki to help with documentation of your project
-
   * A full Issue Tracker is provided complete with auto-assignment, categories, discussion, and specific *commit* references
-
   * Several visual tools are available to represent the Git *commit* history, contributing users, frequency of contributions, and others
 
 ## Git Workflows ##
