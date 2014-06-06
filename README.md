@@ -2,34 +2,13 @@
 
 ## Agenda ##
 
- 1. Objectives
- 2. Version Control Systems
- 3. TFVC
- 4. Git
- 5. Using Git
- 6. Using Git with GitHub
- 7. Workflows
-
-## Objectives ##
-
- * Who should use Git
- * What Git is
- * Where Git excels
- * When does Git fall short
- * Why Git should be used
- * How Git works and How it compares to TFVC
-
- <!-- Need GitHub objectives -->
-
- * Provide an overview of Version Control Systems and the two basic flavors that they come in
- * Give you the high and low points of using TFVC as it relates to my experience with it on my own team
- * Illustrate how Git is different
- * Show you the basics of how Git works
- * Show you how GitHub uses Git and the basics of using GitHub
- * Show you the GitHub GUI in action
-
-
- *Disclaimer: I have experience with using both TFS and Git and am familiar with the basics of both. However, I am by no means an expert . My intention is to merely provide an introductory look and point you in the right direction to learn more*
+ 1. Version Control Systems
+ 2. TFVC
+ 3. Git
+ 4. Using Git
+ 5. Using Git with GitHub
+ 6. Workflows with Git
+ 7. Git Resoureces
 
 ## Version Control Systems ##
 
