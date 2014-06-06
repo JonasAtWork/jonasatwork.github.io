@@ -27,7 +27,7 @@
 
 
         <!-- <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script> -->
-        <!--[if lt IE 9]>           
+        <!--[if lt IE 9]>
             <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
     </head>
@@ -39,282 +39,428 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>Git</h1>
+                    <h1>Intro to Git</h1>
                 </section>
-                <section>
+                <section> <!-- Agenda -->
                     <h2>Agenda</h2>
-                    <br/>
                     <div class="fragment">
-                        <h3>Centralized Version Control</h3>
-                        <p>TFS</p>
+                        <p>Version Control Systems</p>
                     </div>
-                    <br/>
                     <div class="fragment">
-                        <h3>Decentralized Version Control</h3>
+                        <p>Team Foundation Version Control</p>
+                    </div>
+                    <div class="fragment">
                         <p>Git</p>
-                        <p>Github</p>
                     </div>
-                    <br/>
                     <div class="fragment">
-                        <h3>Git in Action</h3>
-                    </div>                    
+                        <p>Using Git</p>
+                    </div>
+                    <div class="fragment">
+                        <p>Using Git with GitHub</p>
+                    </div>
+                    <div class="fragment">
+                        <p>Git Workflows</p>
+                    </div>
+                    <div class="fragment">
+                        <p>Git Resources</p>
+                    </div>
                 </section>
-                <section>
+                <section> <!-- Version Control Systems -->
                     <section>
-                        <h2>Centralized Version Control</h2>
-                    </section>
-                    <section>
-                        <p>All of the work to keep track of files</p>
-                        <p>is done in one <em>central</em> place</p>  
-                        <div class="fragment">
-                            <h3><br/> ... the server!</h3>
-                        </div>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h2>Team Foundation Server</h2>
-                        <div><img src="./gitPresentationAssets/tfs.jpg"></div>
-                        <p>TFS is an example of a Centralized Version Control System (CVCS)</p>
-                        <div class="fragment">
-                            <p><br/>Many teams at Disney use it</p>
-                            <p><em>(including the Scorecard Team!)</em></p>
+                        <h2>Version Control Systems</h2>
+                        <div class="fragment roll-in">
+                            <br>
+                            <h4>Key points for all Version Control System...</h4>
                         </div>
                     </section>
                     <section>
-                        <h3>Centralized means...</h3>
-                        <div class="fragment">
-                            <p>if a developer has a file checked-out in TFS...</p>
-                            <p>other developers must wait...</p>
-                            <p>for the file to be checked-in to use it again</p>
-                        </div>
-                    </section>
-                    <section>
-                        <p>Before ANYTHING can be done with a file in a CVCS, it is checked against the state of the file on the <strong>central</strong> server</p>
-                    </section>                    
-                </section>
-                <section>
-                    <section>
-                        <h3>There is nothing wrong with this model of version control</h3>
-                    </section>
-                    <section>
-                        <div><img src="./gitPresentationAssets/tfs.jpg"></div>
-                        <p>TFS is a great example of a CVCS that works well</p>
-                        <p>(at least for our team)</p> 
-                        <div class="fragment">
-                            <p><br/>Fully recoverable version trail for any of our files</p>
-                        </div>
-                        <div class="fragment">
-                            <p>We dont worry about multiple versions of large files</p>
-                        </div>
-                        <div class="fragment">
-                            <p>Deep integration with Visual Studio and Windows</p>
-                        </div>
-                        <div class="fragment">
-                            <p>Fairly easy to learn and use</p>
-                        </div>
-                    </section>
-                    <section>
-                        <p>TFS is actually a suite of tools that includes its core CVCS engine as well as...</p>
-                        <div class="fragment">
-                            <!-- <ul>
-                                <p><br/>a Build Server</p>
-                                <p>Work Item Tracking</p>
-                                <p>Code Analytics</p>
-                            </ul> -->
-                            <div><img src="./gitPresentationAssets/visual-studio-2010-stadium-diagram_thumb.png"></div>
-                        </div>
-
-                    </section>                 
-                </section>
-                <section>
-                    <section>
-                        <h3>But sometimes the Centralized model may not be the right tool for the job</h3>
-                    </section>
-                    <section>
-                        <p>May not be easy to integrate with a TF Server if you are not in the .NET stack</p>
-                        <p>(i.e. java developers)</p>
-                    </section>
-                    <section>
-                        <p>A large enterprise managed install of TFS may be overkill for smaller projects</p>
-                    </section>
-                    <section>
-                        <p>A CVCS is subject to typical centralized server issues (unexpected outages, maintenance winows, etc...)</p>
-                    </section>
-                    <section>
-                        <p>Branching and Merging can be messy...</p>
-                            <div class="fragment">
-                                <p><br/>Changes done by a Branch or Merge are done on the server, to everyone's benefit (or detriment)</p>
-                            </div>
-                            <div class="fragment">
-                                <p><br/>Branching and Merging are good friends with Agile Development</p>
-                                <p>(we want them to work well!)</p>
-                            </div>
-                    </section>               
-                </section>
-                <section>
-                    <section>
-                        <h2>Decentralized Version Control</h2>
-                    </section>
-                    <section>
-                        <p>All of the work to keep track of files</p>
-                        <p>is done <em>locally</em></p>  
-                        <div class="fragment">
-                            <h3><br/> ... everywhere!</h3>
-                        </div>
-                    </section>
-                    <section>
-                        <div><img style="background:white;" src="./gitPresentationAssets/centr-decentr.png"></div>
+                        <ol>
+                            <li>
+                                <p class="fragment roll-in"><strong>Define a Project</strong></p>
+                                <ul class="fragment roll-in">
+                                    <li>define what objects make up that project</li>
+                                    <li>define who has access to that project</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="fragment roll-in"><strong>Keep track of historical changes within a project</strong></p>
+                            </li>
+                            <li>
+                                <p class="fragment roll-in"><strong>Make structural changes to the project</strong></p>
+                                <div class="fragment roll-in">
+                                    <ul>
+                                        <li>add objects</li>
+                                        <li>remove objects</li>
+                                        <li>create alternate versions of objects (<em>branching</em>)</li>
+                                        <li>combine alternate object versions into one object (<em>merging</em>)</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
                     </section>
                 </section>
-                <section>
+                <section> <!-- Centralized Version Control Systems -->
                     <section>
-                        <h2>Git</h2>
-                        <p>Git is an example of a Decentralized Version Control System (DVCS)</p>
-                        <div class="fragment">
-                            <p><br/>and is also used at Disney</p>
-                            <a href="https://github.disney.com">https://github.disney.com</a>
-                        </div>
-                    </section>
-                    <section>
-                        <h3>Decentralized means...</h3>
-                         <div class="fragment">
-                            <p></b>There is no distinction between a client or a server</p>
-                            <p>everyone has their own local copy ("<strong>clone</strong>") of the whole repository</p>
-                        </div>
-                    </section>
-                    <section>
-                        <div><img style="background:white;" src="./gitPresentationAssets/index1@2x.png"></div>
-
-                        <h3>add</h3>
-                        <p>Staging changed files from the working directory</p>
-
-                        <h3>commit</h3>
-                        <p>Checking in your staged files to your <u>local</u> repository</p>
-                    </section>
-                    <section>
-                        <p><br/>Once your changes are <strong>commited</strong>, you may want to sync your <strong>cloned</strong> repository with another <strong>cloned</strong> repository</p>
-                        <div class="fragment">
-                            <br/>
-                            <h3>push</h3>
-                            <p>Exporting your changes to someone else's <strong>clone</strong></p>
-                            <p>(also sometimes called <strong>publish</strong>)</p>
-                        </div>
-                        <div class="fragment">
-                            <br/>
-                            <h3>pull</h3>
-                            <p>Importing changes from someone else's <strong>clone</strong></p>
-                        </div>
-                    </section>
-                    <section>
-                        <p>Remember that being decentralized means you are able sync with anyone who shares the same repository. This could be...</p>
-                        <div class="fragment">
-                            <p><br/>another developer's machine...</p>
-                        </div>
-                        <div class="fragment">
-                            <p>the DEV server...</p>
-                        </div>
-                        <div class="fragment">
-                            <p>an enterprise github server...</p>
-                        </div>
-                        <div class="fragment">
-                            <p>anyone!</p>
-                        </div>
-                    </section>                    
-                </section>
-                <section>
-                    <section>
-                        <h2>Git is flexible!</h2>
-                        <div><img style="background:white;" src="./gitPresentationAssets/SuperBranch.png"></div>
-                    </section>
-                    <section>
-                        <p>Branching and Merging are much more common operations in a DVCS</p>
-                        <div class="fragment">
-                            <p>Every time a repository is Pushed or Pulled from, a Merge operation is performed</p>
-                        </div>
-                        <div class="fragment">
-                            
-                        </div>
-                    </section>
-                    <section>
-                        <div><p>Changes can be merged into an existing Branch (like a "<strong>develop</strong>" branch) or a new feature Branch can be made to track changes on a specific set</p></div>
-                        <div><img style="background:white;" src="./gitPresentationAssets/SmallBranch.png"></div>
-                    </section>
-                    <section>
-                        <p>All this leeway to Branch and Merge means that git supports many varied workflows</p>
-                    </section>
-                    <section>
-                        <h3>CVCS-Style Workflow</h3>
-                        <div><img style="background:white;" src="./gitPresentationAssets/workflow-a@2x.png"></div>
-                    </section>
-                    <section>
-                        <h3>Integration Manager Workflow</h3>
-                        <div><img style="background:white;" src="./gitPresentationAssets/workflow-b@2x.png"></div>
-                    </section> 
-                    <section>
-                        <h3>Dictator and Lieutenants Workflow</h3>
-                        <div><img style="background:white;" src="./gitPresentationAssets/workflow-c@2x.png"></div>
-                    </section>                   
-                </section>
-                <section>
-                    <section>
-                        <div><img style="background:white;" src="./gitPresentationAssets/github-logo.png"></div>
-                        <h2>Github is a good way to use git</h2>
-                        <div class="fragment">
-                            <a href="https://github.disney.com">https://github.disney.com</a>
-                        </div>
-                    </section>
-                    <section>
-                        <p>Github provides a common repository to store code along with lots of other development tools like:</p>
-                        <div class="fragment">
-                            <p><br/>Work Item and Bug Tracking</p>
-                            <p>Code Analytics</p>
-                            <p>Integration with everything</p>
-                            <p>"Social Coding"</p>
-                        </div>
-                    </section>
-                    <section>
-                        <p>Git is a robust command line tool (if your into that sort of thing)</p>
-                        <div class="fragment">
-                            <p>but there is also a wide range of choices for GUI tools that work well with Git (and Github)</p>
-                        </div>
-                        <div class="fragment">
+                        <h2>Centralized Version Control Systems</h2>
+                        <h3>(CVCS)</h3>
+                        <div class="fragment roll-in">
                             <ul>
-                                <li><a href="http://www.sourcetreeapp.com/">Sourcetree</a> (Atlassian)</li>
-                                <li><a href="http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c">Visual Studio Git Extension</a> (TFS Power Tools team)</li>
-                                <li><a href="http://windows.github.com/">Github Client</a> (Github)</li>
-                                <li><a href="https://code.google.com/p/gitextensions/">gitextensions</a>(Open Source)</li>
+                                <li style="color: #1b91ff;">TFVC (<em>Team Foundation Version Control</em>)</li>
+                                <li>CVS (<em>Concurrent Versions System</em>)</li>
+                                <li>SVN (<em>Subversion</em>)</li>
+                                <li>VSS (<em>Visual Source Safe</em>)</li>
                             </ul>
                         </div>
                     </section>
+                    <section>
+                        <p>All of the work to keep track of files in a CVCS is <strong>ONLY</strong> done in one central place (i.e. the server)</p>
+                        <br>
+                        <p class="fragment roll-in">Whether there are 1, 10, or 1000 developers working on a project, there is only ever one repository in a CVCS</p>
+                        <br>
+                        <br>
+                        <p class="fragment roll-in"><strong>this implies a few important points about a CVCS...</strong></p>
+                    </section>
+                    <section>
+                        <p>To work on the project files, you need access to the centralized server</p>
+                        <p>we <strong>need</strong> network access to reach the server</p>
+                    </section>
+                    <section>
+                        <p>There can only ever be one person editing a file at a time</p>
+                    </section>
+                    <section>
+                        <p>All actions affecting the structure of the project...</p>
+                        <br>
+                        <ul>
+                            <li class="fragment roll-in"><strong>must</strong> be done on the server using network and server resources (not local resources)</li>
+                            <li class="fragment roll-in"><em>immediately</em> affect everyone with access to the server</li>
+                        </ul>
+                    </section>
+                </section>
+                <section> <!-- Decentralized Version Control Systems -->
+                    <section>
+                        <h2>Decentralized Version Control Systems</h2>
+                        <h3>(DVCS)</h3>
+                        <div class="fragment roll-in">
+                            <ul>
+                                <li style="color: #1b91ff;">Git</li>
+                                <li>Hg (<em>Mercurial</em>)</li>
+                                <li>Bazaar</li>
+                                <li>Fossil</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <p>All of the work to keep track of files in a DVCS is <strong>CAN</strong> be done anywhere the repository exists</p>
+                        <br>
+                        <p class="fragment roll-in">A repository can exist on <strong>any</strong> machine (server, "team box", my machine, your machine ... <strong>anywhere</strong>)</p>
+                        <br>
+                        <br>
+                        <p class="fragment roll-in"><strong>this implies a few important points about a DVCS...</strong></p>
+                    </section>
+                    <section>
+                        <p>To work on the project files, you only need access to your local filesystem</p>
+                        <p>You <strong>don't need</strong> network access to reach your repository</p>
+                    </section>
+                    <section>
+                        <p>No one else can "lock" a file in your repository. This means... </p>
+                        <p class="fragment roll-in">...any file can be worked on within your own copy of the repository, regardless of who else may be working on that file</p>
+                    </section>
+                    <section>
+                        <p>All actions affecting the structure of the project...</p>
+                        <br>
+                        <ul>
+                            <li class="fragment roll-in">can be done locally on your machine (local == cheap)</li>
+                            <li class="fragment roll-in">wont affect anyone else until you <em>explicitly</em> push your changes</li>
+                        </ul>
+                    </section>
                 </section>
                 <section>
-                    <section>
-                        <h2>Sometimes the Decentralized model may not be the right tool for the job</h2>
-                    </section>
-                    <section>
-                        <p>Holding many larger, varying binary files (ex. .wid or .xlf files) can be problematic since you lose the benefit of easily branching and merging those files</p>
-                    </section>
-                    <section>
-                        <p>If the CVCS model is more straightforward and easier to understand, then the DVCS model is a bit harder to understand, and thus has a higher learning curve</p>
-                    </section>
-                    <section>
-                        <p>Common misconceptions about git lead to bad practices that may not otherwise occur in a more traditional verison control system</p>
-                        <div class="fragment">
-                            <p><br/>Cloned repositories do not necessarily mean a backed up repository</p>
-                        </div>
-                        <div class="fragment">
-                            <p>Flexible workflows do not mean different workflows. Everyone should agree on a convention and stick to it</p>
-                        </div>
-                    </section>
+
                 </section>
-                <section>
-                    <h2>Git in Action</h2>
-                    <div><img style="background:white;" src="./gitPresentationAssets/repository.png"></div>
-                </section>
-                <section>                    
-                    <a href="http://jonasatwork.github.io/">http://jonasatwork.github.io/</a>
-                </section>
+
+
+
+<!--
+<section>
+    <h1>Git</h1>
+</section>
+<section>
+    <h2>Agenda</h2>
+    <br/>
+    <div class="fragment">
+        <h3>Centralized Version Control</h3>
+        <p>TFS</p>
+    </div>
+    <br/>
+    <div class="fragment">
+        <h3>Decentralized Version Control</h3>
+        <p>Git</p>
+        <p>Github</p>
+    </div>
+    <br/>
+    <div class="fragment">
+        <h3>Git in Action</h3>
+    </div>
+</section>
+<section>
+    <section>
+        <h2>Centralized Version Control</h2>
+    </section>
+    <section>
+        <p>All of the work to keep track of files</p>
+        <p>is done in one <em>central</em> place</p>
+        <div class="fragment">
+            <h3><br/> ... the server!</h3>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Team Foundation Server</h2>
+        <div><img src="./gitPresentationAssets/tfs.jpg"></div>
+        <p>TFS is an example of a Centralized Version Control System (CVCS)</p>
+        <div class="fragment">
+            <p><br/>Many teams at Disney use it</p>
+            <p><em>(including the Scorecard Team!)</em></p>
+        </div>
+    </section>
+    <section>
+        <h3>Centralized means...</h3>
+        <div class="fragment">
+            <p>if a developer has a file checked-out in TFS...</p>
+            <p>other developers must wait...</p>
+            <p>for the file to be checked-in to use it again</p>
+        </div>
+    </section>
+    <section>
+        <p>Before ANYTHING can be done with a file in a CVCS, it is checked against the state of the file on the <strong>central</strong> server</p>
+    </section>
+</section>
+<section>
+    <section>
+        <h3>There is nothing wrong with this model of version control</h3>
+    </section>
+    <section>
+        <div><img src="./gitPresentationAssets/tfs.jpg"></div>
+        <p>TFS is a great example of a CVCS that works well</p>
+        <p>(at least for our team)</p>
+        <div class="fragment">
+            <p><br/>Fully recoverable version trail for any of our files</p>
+        </div>
+        <div class="fragment">
+            <p>We dont worry about multiple versions of large files</p>
+        </div>
+        <div class="fragment">
+            <p>Deep integration with Visual Studio and Windows</p>
+        </div>
+        <div class="fragment">
+            <p>Fairly easy to learn and use</p>
+        </div>
+    </section>
+    <section>
+        <p>TFS is actually a suite of tools that includes its core CVCS engine as well as...</p>
+        <div class="fragment">
+            <ul>
+                <p><br/>a Build Server</p>
+                <p>Work Item Tracking</p>
+                <p>Code Analytics</p>
+            </ul>
+            <div><img src="./gitPresentationAssets/visual-studio-2010-stadium-diagram_thumb.png"></div>
+        </div>
+
+    </section>
+</section>
+<section>
+    <section>
+        <h3>But sometimes the Centralized model may not be the right tool for the job</h3>
+    </section>
+    <section>
+        <p>May not be easy to integrate with a TF Server if you are not in the .NET stack</p>
+        <p>(i.e. java developers)</p>
+    </section>
+    <section>
+        <p>A large enterprise managed install of TFS may be overkill for smaller projects</p>
+    </section>
+    <section>
+        <p>A CVCS is subject to typical centralized server issues (unexpected outages, maintenance winows, etc...)</p>
+    </section>
+    <section>
+        <p>Branching and Merging can be messy...</p>
+            <div class="fragment">
+                <p><br/>Changes done by a Branch or Merge are done on the server, to everyone's benefit (or detriment)</p>
+            </div>
+            <div class="fragment">
+                <p><br/>Branching and Merging are good friends with Agile Development</p>
+                <p>(we want them to work well!)</p>
+            </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Decentralized Version Control</h2>
+    </section>
+    <section>
+        <p>All of the work to keep track of files</p>
+        <p>is done <em>locally</em></p>
+        <div class="fragment">
+            <h3><br/> ... everywhere!</h3>
+        </div>
+    </section>
+    <section>
+        <div><img style="background:white;" src="./gitPresentationAssets/centr-decentr.png"></div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Git</h2>
+        <p>Git is an example of a Decentralized Version Control System (DVCS)</p>
+        <div class="fragment">
+            <p><br/>and is also used at Disney</p>
+            <a href="https://github.disney.com">https://github.disney.com</a>
+        </div>
+    </section>
+    <section>
+        <h3>Decentralized means...</h3>
+         <div class="fragment">
+            <p></b>There is no distinction between a client or a server</p>
+            <p>everyone has their own local copy ("<strong>clone</strong>") of the whole repository</p>
+        </div>
+    </section>
+    <section>
+        <div><img style="background:white;" src="./gitPresentationAssets/index1@2x.png"></div>
+
+        <h3>add</h3>
+        <p>Staging changed files from the working directory</p>
+
+        <h3>commit</h3>
+        <p>Checking in your staged files to your <u>local</u> repository</p>
+    </section>
+    <section>
+        <p><br/>Once your changes are <strong>commited</strong>, you may want to sync your <strong>cloned</strong> repository with another <strong>cloned</strong> repository</p>
+        <div class="fragment">
+            <br/>
+            <h3>push</h3>
+            <p>Exporting your changes to someone else's <strong>clone</strong></p>
+            <p>(also sometimes called <strong>publish</strong>)</p>
+        </div>
+        <div class="fragment">
+            <br/>
+            <h3>pull</h3>
+            <p>Importing changes from someone else's <strong>clone</strong></p>
+        </div>
+    </section>
+    <section>
+        <p>Remember that being decentralized means you are able sync with anyone who shares the same repository. This could be...</p>
+        <div class="fragment">
+            <p><br/>another developer's machine...</p>
+        </div>
+        <div class="fragment">
+            <p>the DEV server...</p>
+        </div>
+        <div class="fragment">
+            <p>an enterprise github server...</p>
+        </div>
+        <div class="fragment">
+            <p>anyone!</p>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Git is flexible!</h2>
+        <div><img style="background:white;" src="./gitPresentationAssets/SuperBranch.png"></div>
+    </section>
+    <section>
+        <p>Branching and Merging are much more common operations in a DVCS</p>
+        <div class="fragment">
+            <p>Every time a repository is Pushed or Pulled from, a Merge operation is performed</p>
+        </div>
+        <div class="fragment">
+
+        </div>
+    </section>
+    <section>
+        <div><p>Changes can be merged into an existing Branch (like a "<strong>develop</strong>" branch) or a new feature Branch can be made to track changes on a specific set</p></div>
+        <div><img style="background:white;" src="./gitPresentationAssets/SmallBranch.png"></div>
+    </section>
+    <section>
+        <p>All this leeway to Branch and Merge means that git supports many varied workflows</p>
+    </section>
+    <section>
+        <h3>CVCS-Style Workflow</h3>
+        <div><img style="background:white;" src="./gitPresentationAssets/workflow-a@2x.png"></div>
+    </section>
+    <section>
+        <h3>Integration Manager Workflow</h3>
+        <div><img style="background:white;" src="./gitPresentationAssets/workflow-b@2x.png"></div>
+    </section>
+    <section>
+        <h3>Dictator and Lieutenants Workflow</h3>
+        <div><img style="background:white;" src="./gitPresentationAssets/workflow-c@2x.png"></div>
+    </section>
+</section>
+<section>
+    <section>
+        <div><img style="background:white;" src="./gitPresentationAssets/github-logo.png"></div>
+        <h2>Github is a good way to use git</h2>
+        <div class="fragment">
+            <a href="https://github.disney.com">https://github.disney.com</a>
+        </div>
+    </section>
+    <section>
+        <p>Github provides a common repository to store code along with lots of other development tools like:</p>
+        <div class="fragment">
+            <p><br/>Work Item and Bug Tracking</p>
+            <p>Code Analytics</p>
+            <p>Integration with everything</p>
+            <p>"Social Coding"</p>
+        </div>
+    </section>
+    <section>
+        <p>Git is a robust command line tool (if your into that sort of thing)</p>
+        <div class="fragment">
+            <p>but there is also a wide range of choices for GUI tools that work well with Git (and Github)</p>
+        </div>
+        <div class="fragment">
+            <ul>
+                <li><a href="http://www.sourcetreeapp.com/">Sourcetree</a> (Atlassian)</li>
+                <li><a href="http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c">Visual Studio Git Extension</a> (TFS Power Tools team)</li>
+                <li><a href="http://windows.github.com/">Github Client</a> (Github)</li>
+                <li><a href="https://code.google.com/p/gitextensions/">gitextensions</a>(Open Source)</li>
+            </ul>
+        </div>
+    </section>
+</section>
+<section>
+    <section>
+        <h2>Sometimes the Decentralized model may not be the right tool for the job</h2>
+    </section>
+    <section>
+        <p>Holding many larger, varying binary files (ex. .wid or .xlf files) can be problematic since you lose the benefit of easily branching and merging those files</p>
+    </section>
+    <section>
+        <p>If the CVCS model is more straightforward and easier to understand, then the DVCS model is a bit harder to understand, and thus has a higher learning curve</p>
+    </section>
+    <section>
+        <p>Common misconceptions about git lead to bad practices that may not otherwise occur in a more traditional verison control system</p>
+        <div class="fragment">
+            <p><br/>Cloned repositories do not necessarily mean a backed up repository</p>
+        </div>
+        <div class="fragment">
+            <p>Flexible workflows do not mean different workflows. Everyone should agree on a convention and stick to it</p>
+        </div>
+    </section>
+</section>
+<section>
+    <h2>Git in Action</h2>
+    <div><img style="background:white;" src="./gitPresentationAssets/repository.png"></div>
+</section>
+<section>
+    <a href="http://jonasatwork.github.io/">http://jonasatwork.github.io/</a>
+</section> -->
+
+
+
             </div>
 
         </div>
