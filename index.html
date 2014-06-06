@@ -355,28 +355,149 @@
                     </section>
                 </section>
                 <section> <!-- Git Usage -->
-                    <section>
+                    <section> <!-- title -->
                         <h2>Using Git</h2>
                         <h3>Basic Training</h3>
                     </section>
-                    <section>
+                    <section> <!-- clone -->
                         <h3>clone</h3>
                         <p>A copy of a repository is called a <strong><u>clone</u></strong>. Cloning a repository copies the entire repository from a <strong><u>remote</u></strong> location and recreates  it on your machine</p>
                         <br>
                         <pre><code data-trim>
                             git clone git://github.com/jonasatwork/jonasatwork.github.io.git
                         </code></pre>
+                        <br>
+                        <p class="fragment roll-in">Remember, the entire history is passed along every time you <strong><u>clone</u></strong> or synchronize a repository</p>
+                    </section>                    
+                    <section> <!-- snapshots -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">snapshots</a></h3>
+                        <p>Git does it's work by saving <strong><u>snapshot</u></strong>s of repository objects.</p>
+                        <br>
+                        <p>view all the <strong><u>snapshot</u></strong>s that Git has collected...</p>
+                        <pre><code data-trim>
+                            git log
+                        </code></pre>
+
+                        <img src="./gitPresentationAssets/git-log.png" alt="git log">
+                        <!-- 
+                            <br>
+                            <hr>
+                            <br>
+                            <p>Git keeps track of these items in a conceptual tree that connects one <strong><u>snapshot</u></strong> to another by their differences (or simply, <strong><u>diff</u></strong>)</p>
+                            <br>
+                            <p>view what has changed since you're last <strong><u>commit</u></strong>...</p>
+                            <pre><code data-trim>
+                                git diff
+                            </code></pre> 
+                        -->
                     </section>
-                    <section>
-                        <h3>pull</h3>
+                    <section> <!-- staging -->
+                        <h3>staging area</h3>
+                        <p>Git is aware of all file additions, deletions, and modifications. You to decide what changes  get grouped together into a <strong><u>commit</u></strong></p>
+                        <br>
+                        <p><strong><u>add</u></strong> changed files to the <strong><u>staging area</u></strong> to group them. Think of this as a future <strong><u>snapshot</u></strong> that you want Git to keep track of</p>
+                        <hr>
+                        <pre><code data-trim>git add index.html css/main.css</code></pre>
+                        <img src="./gitPresentationAssets/git-staging-commit.png" style="background-color:white;" height="60%" width="60%" alt="staging area">
+                        <!-- 
+                            <pre><code>
+                                git status
+                                  # On branch awesomeNewFeature
+                                  # Changes not staged for commit:
+                                  #   (use "git add &lt;file>..." to update what will be committed)
+                                  #   (use "git checkout -- &lt;file>..." to discard changes in working directory)
+                                  #
+                                  #       modified:   index.html
+                                  #       modified:   css/main.css
+                                  #
+                                  # no changes added to commit (use "git add" and/or "git commit -a")
+                            
+                                git add index.html css/main.css
+                            </code></pre> 
+                        -->
+                    </section>
+                    <section> <!-- commit -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">commit</a></h3>
+                        <p>A <strong><u>commit</u></strong> creates a new <strong><u>snapshot</u></strong>  consisting of the items in the <strong><u>staging area</u></strong>, and appends that <strong><u>snapshot</u></strong> to the end of the current <strong><u>branch</u></strong></p>
+                        <br>
+                        <!-- 
+                            <pre><code>
+                                git status
+                                 # On branch awesomeNewFeature
+                                 # Changes to be committed:
+                                 #   (use "git reset HEAD &lt;file>..." to unstage)
+                                 #
+                                 #       modified:   index.html
+                                 #       modified:   css/main.css
+                            
+                                git commit -m "adjusting element width and color on the main page"
+                            
+                                git status
+                                 # On branch awesomeNewFeature
+                                 # nothing to commit, working directory clean
+                            </code></pre> 
+                        -->
+                        <div class="fragment roll-in">
+                            <p><strong>Pro Tip:</strong> Adding descriptive <strong><u>commit</u></strong> messages as you go is a great way to provide automated changelog documentation</p>
+                            <pre><code>git commit -m "adjusting element width and color on the main page"</code></pre>
+                            <img src="./gitPresentationAssets/git_commit.png" alt="commit messages">
+                        </div>
+                    </section>
+                    <section> <!-- branch -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">branch</a></h3>
+                        <p>A <strong><u>branch</u></strong> is one particular line in the tree of <strong><u>snapshots</u></strong>. We <strong><u>checkout</u></strong> a <strong><u>branch</u></strong> to make it active</p>
+                        <br>
+                        <p> When  a <strong><u>branch</u></strong> is active all changes made to files are compared to the most recent <strong><u>snapshot</u></strong> in that <strong><u>branch</u></strong></p>
+                        <br>
+                        <pre><code data-trim>
+                            git checkout -b awesomeNewFeature
+                        </code></pre>
+                        <img src="./gitPresentationAssets/git-branch.png" style="background-color:white;" height="40%" width="40%" alt="branch">
+                    </section>                                        
+                    <section> <!-- merge -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">merge</a></h3>
+                        <p>A <strong><u>merge</u></strong> tells Git to integrate all changes made in one <strong><u>branch</u></strong> to another <strong><u>branch</u></strong></p>
+                        <br>
+                        <p>First, we need to move to the <strong><u>branch</u></strong> we want to <strong><u>merge</u></strong> changes <em>into</em>, then we the merge the <strong><u>branch</u></strong> containing all of our changes</p>
+                        <br>
+                        <!-- <pre><code>
+                          git checkout master
+                          git merge awesomeNewFeature
+                        </code></pre> -->
+                        <div class="fragment roll-in">
+                            <div style="float:left;"><img src="./gitPresentationAssets/git-ff-merge.png" style="background-color:white;" height="120%" width="120%" alt="ff merge"></div>
+                            <div style="float:left;display:block;">
+                                <pre><code>
+git checkout master
+git merge awesomeNewFeature
+                                </code></pre>
+                            </div>
+                            <div style="float:left;"><img src="./gitPresentationAssets/git-non-ff-merge.png" style="background-color:white;" height="85%" width="85%" alt="merge"></div>
+                        </div>
+                        <p></p>
+                        <!-- 
+                            <pre><code>
+                               # Updating a6855ba..67bbdf4
+                               # Fast-forward
+                               #  img/picture_1.png                                    | Bin 0 -> 369760 bytes
+                               #  index.html                                           | 491 +++++++++++++---------
+                               #  css/main.css                                         | 349 +++++++++------
+                               #
+                               #  5 files changed, 503 insertions(+), 337 deletions(-)
+                               #  create mode 100644 img/picture_1.png
+                            </code></pre> 
+                        -->
+                    </section>
+                    <section> <!-- pull -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">pull</a></h3>
                         <p>Synchronizing your <strong><u>cloned</u></strong> repository with the <strong><u>remote</u></strong> repository, requires <strong><u>pull</u></strong>ing in the most recent changes</p>
                         <br>
                         <pre><code data-trim>
-                            git push origin master
+                            git pull origin
                         </code></pre>
                     </section>
-                    <section>
-                        <h3>push</h3>
+                    <section> <!-- push -->
+                        <h3><a href="http://www.wei-wang.com/ExplainGitWithD3/#">push</a></h3>
                         <p><strong><u>push</u></strong>ing your changes back to the <strong><u>remote</u></strong> repository depends on your workflow and how the <strong><u>remote</u></strong> is setup</p>
                         <br>
                         <ul>
@@ -390,99 +511,6 @@
                                 <p>Or submit your changes to the repository owner as a <strong><u>patch</u></strong> so that they may implement your changes (GitHub simplifies this step into a <strong><u>pull request</u></strong>, more on this later...)</p>
                             </li>
                         </ul>
-                    </section>
-                    <section>
-                        <h3>snapshots</h3>
-                        <p>Git does it's work by saving <strong><u>snapshot</u></strong>s of repository objects.</p>
-                        <br>
-                        <p>view all the <strong><u>snapshot</u></strong>s that Git has collected...</p>
-                        <pre><code data-trim>
-                            git log
-                        </code></pre>
-                        <br>
-                        <hr>
-                        <br>
-                        <p>Git keeps track of these items in a conceptual tree that connects one <strong><u>snapshot</u></strong> to another by their differences (or simply, <strong><u>diff</u></strong>)</p>
-                        <br>
-                        <p>view what has changed since you're last <strong><u>commit</u></strong>...</p>
-                        <pre><code data-trim>
-                            git diff
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h3>branch</h3>
-                        <p>A <strong><u>branch</u></strong> is one particular line in the tree of <strong><u>snapshots</u></strong>. We <strong><u>checkout</u></strong> a <strong><u>branch</u></strong> to make it active</p>
-                        <br>
-                        <p> When  a <strong><u>branch</u></strong> is active all changes made to files are compared to the most recent <strong><u>snapshot</u></strong> in that <strong><u>branch</u></strong></p>
-                        <br>
-                        <pre><code data-trim>
-                            git checkout awesomeNewFeature
-                        </code></pre>
-                        <p>{{BRANCHING IMAGE}}</p>
-                    </section>
-                    <section>
-                        <h3>staging area</h3>
-                        <p>Git is aware of all file additions, deletions, and modifications. It is up to you to decide what changes  get grouped together into a <strong><u>commit</u></strong></p>
-                        <br>
-                        <p>You group these changes together by <strong><u>add</u></strong>ing them to the <strong><u>staging area</u></strong>. Think of the <strong><u>staging area</u></strong> as a future <strong><u>snapshot</u></strong> that you want Git to keep track of</p>
-                        <br>
-                        <pre><code>
-    git status
-      # On branch awesomeNewFeature
-      # Changes not staged for commit:
-      #   (use "git add &lt;file>..." to update what will be committed)
-      #   (use "git checkout -- &lt;file>..." to discard changes in working directory)
-      #
-      #       modified:   index.html
-      #       modified:   css/main.css
-      #
-      # no changes added to commit (use "git add" and/or "git commit -a")
-
-    git add index.html css/main.css
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h3>commit</h3>
-                        <p>A <strong><u>commit</u></strong> creates a new <strong><u>snapshot</u></strong>  consisting of the items in the <strong><u>staging area</u></strong>, and appends that <strong><u>snapshot</u></strong> to the end of the current <strong><u>branch</u></strong></p>
-                        <br>
-                        <pre><code>
-    git status
-     # On branch awesomeNewFeature
-     # Changes to be committed:
-     #   (use "git reset HEAD &lt;file>..." to unstage)
-     #
-     #       modified:   index.html
-     #       modified:   css/main.css
-
-    git commit -m "adjusting element width and color on the main page"
-
-    git status
-     # On branch awesomeNewFeature
-     # nothing to commit, working directory clean
-                        </code></pre>
-                        <p>Adding descriptive <strong><u>commit</u></strong> messages as you go is a great way to provide automated changelog documentation</p>
-                    </section>
-                    <section>
-                        <h3>merge</h3>
-                        <p>A merge tells Git to integrate all changes made in one branch to another branch</p>
-                        <br>
-                        <p>We first move to the branch we want to merge changes into</p>
-                        <pre><code data-trim>
-                            git checkout master
-                        </code></pre>
-                        <br>
-                        <p>Then we the merge the branch containing all of our changes</p>
-                        <pre><code>
-    git merge awesomeNewFeature
-     # Updating a6855ba..67bbdf4
-     # Fast-forward
-     #  img/picture_1.png                                    | Bin 0 -> 369760 bytes
-     #  index.html                                           | 491 +++++++++++++---------
-     #  css/main.css                                         | 349 +++++++++------
-     #
-     #  5 files changed, 503 insertions(+), 337 deletions(-)
-     #  create mode 100644 img/picture_1.png
-                        </code></pre>
                     </section>
                 </section>
                 <section> <!-- GitHub -->
@@ -567,7 +595,28 @@
                     </section>
                 </section>
                 <section>
-                    <h2>Git Resources</h2>
+                    <section>
+                        <h2>Git Resources</h2>
+                        <a href="https://jonasatwork.github.io">jonasatwork.github.io</a>
+                    </section>
+                    <section>
+                        <h3>Great Tutorials and References on Git</h3>
+                        <ul>
+                            <li><a href="https://www.atlassian.com/git/tutorial/git-basics">Atlassian Git Tutorials</a></li>
+                            <li><a href="http://www.wei-wang.com/ExplainGitWithD3/">Interactive Git examples</a></li>
+                            <li><a href="http://gitref.org/">Git Quick Reference</a></li>
+                            <li><a href="http://gitready.com/">git ready</a></li>
+                            <li><a href="http://git-scm.com/documentation">Pro Git Book</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>GitHub Resources</h3>
+                        <ul>
+                            <li><a href="https://guides.github.com/">GitHub Guides</a></li>
+                            <li><a href="https://help.github.com/articles/set-up-git">Setup GitHub Documentation</a></li>
+                            <li><a href="https://help.github.com/">GitHub Help Documentation</a></li>
+                        </ul>
+                    </section>
                 </section>
             </div>
         </div>
