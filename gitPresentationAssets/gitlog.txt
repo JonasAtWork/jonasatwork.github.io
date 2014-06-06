@@ -1,0 +1,28 @@
+[seldon@terminus][~/code/JonasAtWork/gitPresentation] (master)
+   ╚═══╡ gitlog
+* aa6a46c (HEAD, master) added new merge example
+* 67bbdf4 (revisedGitPresentation) removed old presentation structure
+* 56f5d1f added Git usage section
+* f8055a6 more minor edits
+* e8f30f2 added TFVC and Git sections
+* a3d0d76 minor edits to notes
+* 41a2f7f added revised TFS images
+* 5fd6d05 added Agenda, VCS, CVCS, and DVCS sections
+* 6d11590 pulled most recent reveal.js for submodule
+* 484fa17 updating reveal.js
+* 8ef1f5b (origin/master) cleaned up version of presentation notes
+* eab970a cleanup and added syntax examples
+* a6855ba Adding more notes to the presentation
+* 0134000 updated reveal.js
+* 3aee96d Adding new notes for revised presentation
+* ccf64fd adding changes to gitReaderNotes
+* 1f96f71 adding .gitignore file
+* 846b852 added github pages link
+* ebc7c77 Rename to index.html for github pages
+* 14b8ebd Added notes for cloning this presentation
+* 4ec1705 Adjusted usage notes
+* 1b1cef2 Added reader notes
+* b3b24c4 Edited presentation to reflect directory change
+* b448123 Adding assets and presentation doc
+* 5939d94 adding reveal.js submodule
+* 7948f6d adding README
