@@ -174,8 +174,107 @@
                         </ul>
                     </section>
                 </section>
-                <section>
-
+                <section> <!-- Locking vs Merging -->
+                    <section>
+                        <h3>A CVCS <u>locks</u></h3>
+                        <br>
+                        <div class="fragment roll-in">
+                            <h4>UNLOCK --> MODIFY --> LOCK</h4>
+                        </div>
+                        <p class="fragment roll-in">A file is <em>read only</em> when <u>LOCKED</u>, and <em>writable</em> when <u>UNLOCKED</u></p>
+                    </section>
+                    <section>
+                        <h3>A DVCS <u>merges</u></h3>
+                        <br>
+                        <div class="fragment roll-in">
+                            <h4>MODIFY --> MERGE</h4>
+                        </div>
+                        <p class="fragment roll-in">Changes to files are <u>MERGED</u> with the file  that currently exists in the repository</p>
+                    </section>
+                </section>
+                <section> <!-- TFVC -->
+                    <section>
+                        <h2>Team Foundation Version Control</h2>
+                        <h3>(TFVC)</h3>
+                    </section>
+                    <section>
+                        <p><strong>TFVC != TFS</strong></p>
+                        <p>{{STADIUM IMAGE}}</p>
+                    </section>
+                    <section>
+                        <h3>Why TFVC is worth a look</h3>
+                        <br>
+                        <p class="fragment roll-in">Enterprise wide license for use of TFS</p>
+                        <br>
+                        <p class="fragment roll-in">Deeply integrates with Visual Studios and Windows</p>
+                        <br>
+                        <div class="fragment roll-in">
+                            <p style="color: #1b91ff;"><strong>TFVC handles big binary files very well</strong></p>
+                            <ul>
+                                <li>All of the prior versions are kept on the server and off of my machine</li>
+                                <li style="color: #1b91ff;"><strong>This is a strength of TFVC and just about any other CVCS</strong></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Why you should look elsewhere</h3>
+                        <br>
+                        <p class="fragment roll-in">Not using a Microsoft stack (i.e. Java Developers)</p>
+                        <br>
+                        <p class="fragment roll-in">Enterprise scale TFS may be overkill</p>
+                        <br>
+                        <p class="fragment roll-in">TFVC is more susceptible to network problems</p>
+                        <br>
+                        <div class="fragment roll-in">
+                            <p style="color: #ff2c2d;"><strong>TFVC can be cumbersome with rapid development</strong></p>
+                            <ul>
+                                <li>frequent <em>branching</em> and <em>merging</em> make this type of development much easier, but this can be more trouble than its worth in TFVC</li>
+                                <li style="color: #ff2c2d;"><strong>This is a weakness of TFVC and just about any other CVCS</strong></li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+                <section> <!-- Git -->
+                    <section>
+                        <h2>Git</h2>
+                    </section>
+                    <section>
+                        <p><strong>Git is a tool developed for the command line</strong></p>
+                        <p class="fragment roll-in"><em>but you dont need to use it that way if you dont want to</em></p>
+                    </section>
+                    <section>
+                        <h3>Why Git is awesome :)</h3>
+                        <br>
+                        <p class="fragment roll-in">Deep integration with just about everything</p>
+                        <br>
+                        <p class="fragment roll-in">Git can be as complex or simple as you need it to be</p>
+                        <br>
+                        <p class="fragment roll-in">Works well remotely, without network access if needed</p>
+                        <br>
+                        <p class="fragment roll-in">Flexible development workflows</p>
+                        <br>
+                        <div class="fragment roll-in">
+                            <p style="color: #1b91ff;"><strong>Git encourages frequent <em>branching</em> and <em>merging</em></strong></p>
+                            <ul>
+                                <li style="color: #1b91ff;"><strong>This is a strength of Git and many other DVCS'</strong></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Pitfalls with Git :(</h3>
+                        <br>
+                        <p class="fragment roll-in">Flexible development workflows do not imply different workflows</p>
+                        <br>
+                        <p class="fragment roll-in">A "Distributed Repository" does not mean a "Backed Up Repository"</p>
+                        <br>
+                        <div class="fragment roll-in">
+                            <p style="color: #ff2c2d;"><strong>Git does not handle large numbers of big binary files very well</strong></p>
+                            <ul>
+                                <li>All prior versions of these big files are kept in every repository that is created</li>
+                                <li style="color: #ff2c2d;"><strong>This is the single biggest drawback to using Git over a CVCS</strong></li>
+                            </ul>
+                        </div>
+                    </section>
                 </section>
 
 
